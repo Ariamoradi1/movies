@@ -3,7 +3,7 @@ import { Typography } from "@mui/material"
 
 const searchResult = () => {
     const select = useSelector((state) => state.search)
-    console.log(select)
+    console.log('select',select)
     return(
         <>
         <div className="flex justify-center mt-[50px] flex-wrap">
@@ -26,7 +26,7 @@ const searchResult = () => {
             
             <>
             <img className="w-[700px] h-[500px]" src={img.images[0]} alt={img.title} />
-            <img className="w-[700px] h-[500px]" src={img.images[1]} alt={img.title} />
+            <img className="w-[700px] h-[500px] mt-9" src={img.images[1]} alt={img.title} />
             <img className="w-[700px] h-[500px] mt-9" src={img.images[2]} alt={img.title} />
             </>
             ))}

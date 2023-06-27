@@ -1,5 +1,6 @@
 import Navbar from '../Navbar'
 import OurSuggestion from './OurSuggestion/OurSuggestion'
+import Popular from './Popular/Popular'
 import TenMovie from './tenMovie/TenMovie'
 
 const Homee = () => {
@@ -8,6 +9,7 @@ const Homee = () => {
        <Navbar />
        <TenMovie/>
        <OurSuggestion/>
+       <Popular/>
         </>
     )
 }
