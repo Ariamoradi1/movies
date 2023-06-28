@@ -5,22 +5,15 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import DirectionsIcon from '@mui/icons-material/Directions';
-import Typography from '@mui/material/Typography';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {search} from '../Redux/Slice/searchSlice'
 import {useRouter} from 'next/router';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import Swal from 'sweetalert2'
-const Navbar = ({loading,setLoading}) => {
 
+const Navbar = ({loading,setLoading}) => {
     const [userSearch, setUserSearch] = useState('')
-    const select = useSelector((state) => state.search)
     const dispatch = useDispatch()
     const router = useRouter()
-    console.log('status', select)
 
     const searchHandler = () => {
       if (userSearch === '') {
@@ -28,7 +21,7 @@ const Navbar = ({loading,setLoading}) => {
           icon:'info',
           title: 'Oops',
           text:'The value must not be empty!',
-      })
+        })
       }else{
         dispatch(search(userSearch))
         router.push('/searchResult')

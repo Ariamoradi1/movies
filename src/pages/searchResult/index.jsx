@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
 import { Typography } from "@mui/material"
-import { useState } from "react"
 import Button from '@mui/material/Button';
 import { useRouter } from "next/router";
 
@@ -15,7 +14,7 @@ const searchResult = () => {
         {select.length === 0 ?
          <div className="w-full h-[100vh] bg-white">
          <div className="flex flex-wrap justify-center relative top-[25%]">
-         <img className="w-[300px] h-[300px]" src="oops.avif" alt="error" />
+         <img className="w-[300px] h-[300px]" src="https://i.pinimg.com/originals/0e/c0/db/0ec0dbf1e9a008acb9955d3246970e15.gif" alt="error" />
          <div className="flex flex-col justify-center">
          <Typography variant="h5">Oops...The Desired Movie Was Not Found</Typography>
          <Button onClick={navigate} variant="outlined">Go To Home Page</Button>

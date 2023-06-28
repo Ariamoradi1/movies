@@ -1,3 +1,5 @@
+"use client";
+
 import { useDispatch, useSelector } from "react-redux"
 import { populartMovies } from "../../../Redux/Slice/popularSlice"
 import { useEffect } from "react"
