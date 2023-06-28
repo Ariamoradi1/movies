@@ -7,20 +7,35 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import Typography from '@mui/material/Typography';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {search} from '../Redux/Slice/searchSlice'
 import {useRouter} from 'next/router';
-const Navbar = () => {
-    
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import Swal from 'sweetalert2'
+const Navbar = ({loading,setLoading}) => {
+
     const [userSearch, setUserSearch] = useState('')
+    const select = useSelector((state) => state.search)
     const dispatch = useDispatch()
     const router = useRouter()
-    const searchHandler = () => {
-      dispatch(search(userSearch))
-      router.push('/searchResult')
-    }
+    console.log('status', select)
 
-    
+    const searchHandler = () => {
+      if (userSearch === '') {
+        Swal.fire({
+          icon:'info',
+          title: 'Oops',
+          text:'The value must not be empty!',
+      })
+      }else{
+        dispatch(search(userSearch))
+        router.push('/searchResult')
+        setLoading(true)
+      }
+      
+    }
 
     return(
      <>
@@ -45,6 +60,13 @@ const Navbar = () => {
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
     </Paper>
      </nav>
+     {loading && (
+      <>
+      <div className='fixed left-[32.5%] top-[32.5%]'>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="my Gif" />
+      </div>
+      </>
+     )}
      </>
     )
 }
